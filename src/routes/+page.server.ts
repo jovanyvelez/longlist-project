@@ -1,4 +1,4 @@
-import { db } from '$lib/server/database';
+import { db } from '$lib/server/database/client.js';
 import {
 	editores,
 	libros,
@@ -7,11 +7,11 @@ import {
 	traductores,
 	traducidos,
 	calificaciones
-} from '$lib/server/database/schema.js';
+} from '$lib/server/database/data';
 import { desc, eq, sql, sum, count, avg, Column } from 'drizzle-orm';
 
 export const load = async () => {
-/* 	const masVotados = await db
+	const masVotados = await db
 		.select({
 			id: libros.id,
 			titulo: libros.titulo,
@@ -19,8 +19,8 @@ export const load = async () => {
 			promedio: avg(calificaciones.calificacion)
 		})
 		.from(libros)
-		.innerJoin(calificaciones, eq(libros.id, calificaciones.libroId))
-		.groupBy(calificaciones.libroId)
+		.innerJoin(calificaciones, eq(libros.id, calificaciones.bookId))
+		.groupBy(calificaciones.bookId)
 		.orderBy(desc(count(calificaciones.calificacion)))
 		.limit(5);
 
@@ -32,6 +32,6 @@ export const load = async () => {
 			libros: { titulo: true }
 		}
 	});
-	console.log(JSON.stringify(test, null, 2)); */
-	return {  };
+	console.log(JSON.stringify(test, null, 2));
+	return { masVotados };
 };

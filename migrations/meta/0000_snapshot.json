@@ -364,24 +364,16 @@
           "primaryKey": false,
           "notNull": true
         },
-        "contrasena": {
+        "password": {
           "autoincrement": false,
-          "name": "contrasena",
+          "name": "password",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         }
       },
       "compositePrimaryKeys": {},
-      "indexes": {
-        "user_email_unique": {
-          "name": "user_email_unique",
-          "columns": [
-            "email"
-          ],
-          "isUnique": true
-        }
-      },
+      "indexes": {},
       "foreignKeys": {},
       "uniqueConstraints": {}
     }
