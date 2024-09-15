@@ -1,16 +1,17 @@
-import { db } from '$lib/server/database/client.js';
-import {
-	editores,
-	libros,
-	autores,
-	escritos,
-	traductores,
-	traducidos,
-	calificaciones
-} from '$lib/server/database/data';
-import { desc, eq, sql, sum, count, avg, Column } from 'drizzle-orm';
+//import { lucia } from '$lib/server/auth';
+import { redirect } from '@sveltejs/kit';
 
-export const load = async () => {
+import { db } from '$lib/server/database/client.js';
+import { libros, calificaciones } from '$lib/server/database/data';
+import { desc, eq, count, avg } from 'drizzle-orm';
+
+export const load = async ({ locals }) => {
+	if (!locals.user) {
+		return redirect(302, '/login');
+	}
+	return {
+		user: locals.user
+	};
 	const masVotados = await db
 		.select({
 			id: libros.id,

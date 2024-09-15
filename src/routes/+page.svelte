@@ -36,8 +36,9 @@
 			<div class="card-body p-6">
 				<h2 class="card-title text-xl font-bold text-blue-600">Libros</h2>
 				<p class="text-gray-700 mt-2">Gestiona y visualiza tu colección de libros.</p>
-				<button class="btn btn-primary mt-4 bg-blue-600 hover:bg-blue-700 text-white"
-					>Ver Libros</button
+				<button
+					class="btn btn-primary mt-4 bg-blue-600 hover:bg-blue-700 text-white"
+					onclick={() => goto('/libros')}>Ver Libros</button
 				>
 			</div>
 		</div>
