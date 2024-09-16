@@ -1,9 +1,5 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { createCounter } from '$lib/store.svelte';
-	//
-	const counter = createCounter();
-
 	// Aquí podrías agregar lógica si es necesario
 </script>
 
