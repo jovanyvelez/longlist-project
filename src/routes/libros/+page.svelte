@@ -4,9 +4,7 @@
 	let selectedCell = $state(null);
 
 	function handleClick(cellId) {
-	    selectedCell = null
-		selectedCell = cellId;
-		//selectedCell = selectedCell === cellId ? null : cellId;
+		selectedCell = selectedCell === cellId ? null : cellId;
 	}
 </script>
 
