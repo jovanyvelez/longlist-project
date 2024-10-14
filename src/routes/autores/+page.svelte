@@ -1,10 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { createCounter } from '$lib/store.svelte';
 	let { data } = $props();
-	const counter = createCounter();
+	let { escritores } = data;
+
 </script>
-<h1>{counter.count}</h1>
+
+
 <div class="bg-gray-100 min-h-screen flex flex-col">
 	<!-- Header -->
 	<header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-8">
@@ -36,6 +37,7 @@
 			>
 		</div>
 
+		
 		<!-- Authors List -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<!-- Example Author Card 1 -->

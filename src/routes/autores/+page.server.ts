@@ -1,9 +1,11 @@
 import { db } from '$lib/server/database/client';
 import { autores } from '$lib/server/database/data';
-import { LibsqlError } from '@libsql/client';
-import { eq } from 'drizzle-orm';
+//import { LibsqlError } from '@libsql/client';
+//import { eq } from 'drizzle-orm';
 
-export const load = async () => {
+
+export async function load(){
+
 	const escritores = await db
 		.select({
 			id: autores.id,
@@ -12,9 +14,33 @@ export const load = async () => {
 			pais: autores.pais
 		})
 		.from(autores);
-
+	
 	return { escritores };
-};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const actions = {
 	borrar: async ({ request }) => {
@@ -22,7 +48,7 @@ export const actions = {
 		const data = Object.fromEntries(formData);
 		console.log(data);
 		try {
-			await db.delete(autores).where(eq(autores.id, data.id));
+			await db.delete(autores).where( eq( autores.id, data.id) ) ;
 		} catch (error) {
 			if (error instanceof LibsqlError) {
 				console.log(JSON.stringify(error, null, 2));

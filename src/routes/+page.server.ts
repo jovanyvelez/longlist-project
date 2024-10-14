@@ -1,5 +1,5 @@
 //import { lucia } from '$lib/server/auth';
-import { redirect } from '@sveltejs/kit';
+/* import { redirect } from '@sveltejs/kit';
 
 import { db } from '$lib/server/database/client.js';
 import { libros, calificaciones } from '$lib/server/database/data';
@@ -12,6 +12,8 @@ export const load = async ({ locals }) => {
 	return {
 		user: locals.user
 	};
+
+
 	const masVotados = await db
 		.select({
 			id: libros.id,
@@ -35,4 +37,4 @@ export const load = async ({ locals }) => {
 	});
 	console.log(JSON.stringify(test, null, 2));
 	return { masVotados };
-};
+}; */
