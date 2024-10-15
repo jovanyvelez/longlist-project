@@ -14,7 +14,7 @@
         title="Autores" 
         description="Gestiona y visualiza la información sobre autores." 
         buttonText="Ver Autores" 
-        route='/autores' 
+        route='/autores/1' 
     />
     <Card 
         title="Libros" 

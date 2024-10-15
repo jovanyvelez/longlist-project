@@ -1,11 +1,11 @@
-import { sqliteTable, AnySQLiteColumn, integer, text, foreignKey } from "drizzle-orm/sqlite-core"
-  import { sql } from "drizzle-orm"
+import { sqliteTable, integer, text, foreignKey } from "drizzle-orm/sqlite-core"
+
 
 export const autores = sqliteTable("autores", {
-	id: integer("id").primaryKey(),
-	nombre: text("nombre"),
-	pais: text("pais"),
-	nacimiento: integer("nacimiento"),
+	id: integer().primaryKey(),
+	nombre: text(),
+	pais: text(),
+	nacimiento: integer(),
 });
 
 export const escritos = sqliteTable("escritos", {
@@ -14,29 +14,29 @@ export const escritos = sqliteTable("escritos", {
 });
 
 export const libros = sqliteTable("libros", {
-	id: integer("id").primaryKey(),
-	isbn: text("isbn"),
-	titulo: text("titulo"),
+	id: integer().primaryKey(),
+	isbn: text(),
+	titulo: text(),
 	editorialId: integer("editorial_id").references(() => editores.id),
-	format: text("format"),
-	pages: integer("pages"),
-	publicado: text("publicado"),
-	year: integer("year"),
+	format: text(),
+	pages: integer(),
+	publicado: text(),
+	year: integer(),
 });
 
 export const editores = sqliteTable("editores", {
-	id: integer("id").primaryKey(),
-	editorial: text("editorial"),
+	id: integer().primaryKey(),
+	editorial: text(),
 });
 
 export const calificaciones = sqliteTable("calificaciones", {
 	bookId: integer("book_id").references(() => libros.id),
-	calificacion: integer("calificacion"),
+	calificacion: integer(),
 });
 
 export const traductores = sqliteTable("traductores", {
-	id: integer("id").primaryKey(),
-	nombre: text("nombre"),
+	id: integer().primaryKey(),
+	nombre: text(),
 });
 
 export const traducidos = sqliteTable("traducidos", {
@@ -45,13 +45,13 @@ export const traducidos = sqliteTable("traducidos", {
 });
 
 export const session = sqliteTable("session", {
-	id: text("id").primaryKey().notNull(),
+	id: text().primaryKey().notNull(),
 	userId: text("user_id").notNull().references(() => user.id),
 	expiresAt: integer("expires_at").notNull(),
 });
 
 export const user = sqliteTable("user", {
-	id: text("id").primaryKey().notNull(),
-	email: text("email").notNull(),
-	password: text("password").notNull(),
+	id: text().primaryKey().notNull(),
+	email: text().notNull(),
+	password: text().notNull(),
 });

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import IsLoading from './IsLoading.svelte';
 
 	type parameters = {
 		title: string;
@@ -18,7 +19,7 @@
 	}
 </script>
 
-<div class="shadow-lg bg-white flex-1 m-2">
+<div class="shadow-lg bg-white flex-1 m-2 rounded-lg">
 	<div class="p-6">
 		<h2 class="text-xl font-bold text-blue-600">{title}</h2>
 		<p class="text-gray-600 mt-2">{description}</p>
@@ -28,16 +29,4 @@
 	</div>
 </div>
 
-{#if isLoading}
-	<div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-		<div class="bg-white p-4 rounded shadow-lg">
-			<p class="text-lg font-bold">Cargando</p>
-			<p class="flex justify-center items-center">
-				
-				<span class="loading loading-ring loading-sm" style="background-color: yellow;"></span>
-				<span class="loading loading-ring loading-md" style="background-color: blue;"></span>
-                <span class="loading loading-ring loading-lg" style="background-color: red;"></span>
-			</p>
-		</div>
-	</div>
-{/if}
+<IsLoading {isLoading} />
