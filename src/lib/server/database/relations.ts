@@ -7,6 +7,7 @@ import {
 	calificaciones,
 	traducidos,
 	traductores,
+	users,
 	user,
 	session
 } from './tables';

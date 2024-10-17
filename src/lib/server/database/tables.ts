@@ -64,3 +64,9 @@ export const user = sqliteTable(
 		};
 	}
 );
+
+export const users = sqliteTable('users', {
+	id: integer().primaryKey(),
+	nombre: text().notNull(),
+	email: text(),
+})

@@ -1,91 +1,62 @@
-<script>
-	import { enhance } from '$app/forms';
-	let { form } = $props();
-</script>
 
-{#if form?.message}
-	<p>{form?.message}</p>
-{/if}
+<h1 class="center">Demostracíon de Forms Sveltekit</h1>
 
-<div class="container">
-	<div class="card">
-		<h1>Sign in</h1>
-		<form method="post" action="?/login" use:enhance>
-			<div class="form-control">
-				<label for="email">Email</label>
-				<input type="text" name="email" id="username" />
-			</div>
-			<div class="form-control">
-				<label for="password">Password</label>
-				<input type="password" name="password" id="password" />
-			</div>
-			<div class="form-control">
-				<button type="submit">Continue</button>
-			</div>
-		</form>
-	</div>
-</div>
+<form action="?/colectData" method="post">
+	<label for="email">Excribe tu email</label>
+	<input type="email" name="email" autocomplete="off" required />
+
+	<label for="password" class="space">Excribe tu contraseña</label>
+	<input type="password" name="password" required />
+
+	<button type="submit">Enviar datos</button>
+</form>
 
 <style>
-	.container {
+	form {
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 100vh;
-		background-color: #f3f4f6; /* bg-gray-100 */
+		flex-direction: column;
+		max-width: 50%;
+		margin: auto auto;
+		border: 1px solid #ccc;
+		padding: 5rem;
+		background-color: #f4f4f4;
+		border-radius: 10px;
 	}
 
-	.card {
-		width: 24rem; /* w-96 */
-		background-color: #ffffff; /* bg-white */
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-xl */
-		border-radius: 0.5rem; /* rounded-lg */
-		padding: 2rem; /* p-8 */
+	input {
+		border: 2px solid grey;
+		padding: 0.5rem;
+		box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+		margin: 0.3rem 0;
+		border-radius: 5px;
+		color: #5a5a5a;
+		font-size: 1.3rem;
 	}
 
-	.card h1 {
-		font-size: 1.5rem; /* text-2xl */
-		font-weight: bold; /* font-bold */
-		margin-bottom: 1rem; /* mb-4 */
-	}
-
-	.form-control {
-		margin-bottom: 1rem; /* mb-4 */
-	}
-
-	.form-control label {
-		display: block;
-		margin-bottom: 0.5rem; /* mb-2 */
-		font-weight: 500; /* font-medium */
-	}
-
-	.form-control input {
-		width: 100%; /* w-full */
-		padding: 0.5rem; /* p-2 */
-		border: 1px solid #d1d5db; /* border-gray-300 */
-		border-radius: 0.375rem; /* rounded-md */
-		font-size: 1rem; /* text-base */
-	}
-
-	.form-control input:focus {
-		outline: none;
-		border-color: #3b82f6; /* border-blue-500 */
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* focus:ring */
-	}
-
-	.form-control button {
-		width: 100%; /* w-full */
-		padding: 0.75rem; /* py-3 */
-		background-color: #3b82f6; /* bg-blue-500 */
-		color: #ffffff; /* text-white */
-		border: none;
-		border-radius: 0.375rem; /* rounded-md */
-		font-size: 1rem; /* text-base */
-		font-weight: 500; /* font-medium */
+	button {
+		background-color: #f4f4f4;
+		color: #333;
+		padding: 0.5rem 1rem;
+		border: solid 1px #333;
+		border-radius: 5px;
+		margin-top: 1rem;
 		cursor: pointer;
+		margin: 0 auto;
+		margin-top: 1rem;
 	}
 
-	.form-control button:hover {
-		background-color: #2563eb; /* bg-blue-600 */
+	button:hover {
+		background-color: white;
+		font-weight: bold;
+	}
+
+	.space {
+		margin: 1rem 0 0;
+	}
+	.center {
+		margin: 0 auto;
+		max-width: 50%;
+		text-align: center;
+		margin-top: 5rem;
 	}
 </style>
