@@ -1,4 +1,4 @@
-import { sqliteTable, integer, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, integer, text, uniqueIndex, numeric } from 'drizzle-orm/sqlite-core';
 
 export const autores = sqliteTable('autores', {
 	id: integer('id').primaryKey(),
@@ -68,5 +68,14 @@ export const user = sqliteTable(
 export const users = sqliteTable('users', {
 	id: integer().primaryKey(),
 	nombre: text().notNull(),
-	email: text(),
-})
+	email: text()
+});
+
+export const usuarios = sqliteTable('usuarios', {
+	id: integer().primaryKey({ autoIncrement: true }),
+	nombre: text().notNull(),
+	email: text().notNull(),
+	rol: text().notNull(),
+	contrasena: text().notNull(),
+	edad: numeric()
+});

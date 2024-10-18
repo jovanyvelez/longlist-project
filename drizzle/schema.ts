@@ -1,5 +1,5 @@
-import { sqliteTable, integer, text, foreignKey } from "drizzle-orm/sqlite-core"
-
+import { sqliteTable, AnySQLiteColumn, integer, text, foreignKey, numeric } from "drizzle-orm/sqlite-core"
+  import { sql } from "drizzle-orm"
 
 export const autores = sqliteTable("autores", {
 	id: integer().primaryKey(),
@@ -44,14 +44,15 @@ export const traducidos = sqliteTable("traducidos", {
 	libroId: integer("libro_id").references(() => libros.id),
 });
 
-export const session = sqliteTable("session", {
-	id: text().primaryKey().notNull(),
-	userId: text("user_id").notNull().references(() => user.id),
-	expiresAt: integer("expires_at").notNull(),
+export const usuarios = sqliteTable("usuarios", {
+	id: integer().primaryKey({ autoIncrement: true }),
+	nombre: text().notNull(),
+	email: text().notNull(),
+	rol: text().notNull(),
+	contrasena: text().notNull(),
+	edad: numeric(),
 });
 
-export const user = sqliteTable("user", {
-	id: text().primaryKey().notNull(),
-	email: text().notNull(),
-	password: text().notNull(),
+export const drizzleMigrations = sqliteTable("__drizzle_migrations", {
 });
+

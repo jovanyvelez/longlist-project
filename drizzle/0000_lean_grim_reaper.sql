@@ -50,17 +50,17 @@ CREATE TABLE `traducidos` (
 	FOREIGN KEY (`traductor_id`) REFERENCES `traductores`(`id`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
-CREATE TABLE `session` (
-	`id` text PRIMARY KEY NOT NULL,
-	`user_id` text NOT NULL,
-	`expires_at` integer NOT NULL,
-	FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON UPDATE no action ON DELETE no action
+CREATE TABLE `usuarios` (
+	`id` integer PRIMARY KEY AUTOINCREMENT,
+	`nombre` text NOT NULL,
+	`email` text NOT NULL,
+	`rol` text NOT NULL,
+	`contrasena` text NOT NULL,
+	`edad` numeric
 );
 --> statement-breakpoint
-CREATE TABLE `user` (
-	`id` text PRIMARY KEY NOT NULL,
-	`email` text NOT NULL,
-	`password` text NOT NULL
+CREATE TABLE `__drizzle_migrations` (
+
 );
 
 */

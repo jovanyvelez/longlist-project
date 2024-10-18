@@ -1,11 +1,9 @@
-export function load() {
-	return {};
-}
+import { uploadImage } from '$lib/server/cloudinary';
 
 export const actions = {
-
-	colectData: async ({ request }: { request: Request }) => {
+	crearUsuario: async ({ request }) => {
 		const data = Object.fromEntries(await request.formData());
-		console.log(data);
+		uploadImage(data.send_image);
+		return;
 	}
 };

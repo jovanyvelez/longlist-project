@@ -44,6 +44,7 @@
 	"dependencies": {
 		"@libsql/client": "^0.14.0",
 		"@lucia-auth/adapter-drizzle": "^1.1.0",
+		"cloudinary": "^2.5.1",
 		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.35.1",
 		"lucia": "^3.2.0"

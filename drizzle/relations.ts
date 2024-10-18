@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm/relations";
-import { libros, escritos, autores, editores, calificaciones, traducidos, traductores, user, session } from "./schema";
+import { libros, escritos, autores, editores, calificaciones, traducidos, traductores } from "./schema";
 
 export const escritosRelations = relations(escritos, ({one}) => ({
 	libro: one(libros, {
@@ -50,15 +50,4 @@ export const traducidosRelations = relations(traducidos, ({one}) => ({
 
 export const traductoresRelations = relations(traductores, ({many}) => ({
 	traducidos: many(traducidos),
-}));
-
-export const sessionRelations = relations(session, ({one}) => ({
-	user: one(user, {
-		fields: [session.userId],
-		references: [user.id]
-	}),
-}));
-
-export const userRelations = relations(user, ({many}) => ({
-	sessions: many(session),
 }));
